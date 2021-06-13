@@ -10,14 +10,14 @@
 
 using namespace std;
 
-vector<string> seperateALine(const string &inputString) {
-    vector<string> seperateVec;
+vector<string> separateALine(const string &inputString) {
+    vector<string> separateVec;
     istringstream istrStream(inputString);
     string temp;
     while (getline(istrStream, temp, ',')) {
-        seperateVec.push_back(temp);
+        separateVec.push_back(temp);
     }
-    return seperateVec;
+    return separateVec;
 }
 
 vector<int> findProblemLength(const vector<string> &items) {
@@ -76,7 +76,7 @@ void fixBug(const std::string &filename, const std::string &outFilename) {
         cout << "Cannot open the file!" << endl;
         exit(1);
     }
-    auto sep = seperateALine(temp);
+    auto sep = separateALine(temp);
     auto lenVec = findProblemLength(sep);
 //    for (const auto& i:lenVec) {
 //        cout<<i<<endl;
@@ -87,7 +87,7 @@ void fixBug(const std::string &filename, const std::string &outFilename) {
 //        cout<<i<<endl;
 //    }
     while (getline(inputCSV, temp)) {
-        sep = seperateALine(temp);
+        sep = separateALine(temp);
         useful = findUsefulColumns(sep, lenVec);
         writeALine(outputCSV, useful);
 //        for (const auto& i:useful) {
